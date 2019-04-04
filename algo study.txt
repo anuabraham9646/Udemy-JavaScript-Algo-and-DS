@@ -1,0 +1,68 @@
+SORTING
+
+when the list is nearly sorted or if the data is small
+then insertion sort is the fastest because it goes back and perform acion only if anything smaller element is found hence for the nearly sorted this is the fastest sorting
+
+
+mergesort is very good
+because all the possible case is in O(n log n) but it takes O(n ) space
+
+quicksort partitions into pivot
+but its worst case is O(n^2) since if the array is already sorted and pivot is smallest element then the pivot wont divide into 2 array hence it will be very complex
+A stable sorting algorithm is the one that sorts the identical elements in their same order as they appears in the input, whilst unstable sorting may not satisfy the case.
+
+Stable Sorting Algorithms:
+
+    Insertion Sort
+    Merge Sort
+    Bubble Sort
+    Tim Sort
+    Counting Sort
+
+Unstable Sorting Algorithms:
+
+    Heap Sort
+    Selection sort
+    Shell sort
+    Quick Sort
+
+
+
+
+
+bfs and dfs O(n)
+
+bfs  pros    if the node to find is in the top nodes then this is good
+short path
+close nodes
+
+cons
+more memory
+
+
+
+
+dfs pros                 if the node is in the bottom most node then this is good
+less memory
+it is good at asking if the path is between the 2 node
+
+cons 
+
+slow
+
+
+
+If you know a solution is not far from the root of the tree:
+BFS
+
+//If the tree is very deep and solutions are rare, 
+BFS (DFS will take long time. )
+
+//If the tree is very wide:
+DFS (BFS will need too much memory)
+
+//If solutions are frequent but located deep in the tree
+DFS
+
+
+ 

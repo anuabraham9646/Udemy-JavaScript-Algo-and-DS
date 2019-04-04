@@ -1,0 +1,325 @@
+ARRAYS
+
+
+
+lookup  O(1)  push O(1) insert O(n) delete O(n)
+
+
+push-     function to add at end of array
+
+unshift ---   O(n)             is to add at the start of array
+splice-    strings.splice(2,0,'alien')  splice function here 1st arg is the index and 2nd arg is the number of items to delete since we are adding then we add that as 0 also 3rd arg is the element
+
+
+
+dynamic array
+
+
+same as above complexity but appending is O(1)  but it can be O(n) in below cases
+
+here we can add dynamically if we have 7 space and if we want to add 8th then what happens internally is that it loops over array copy it and moves to different location and there it creates an arrray of DOUBLE THE SIZE of pfrevious array
+
+
+
+String ---------- convert into array using split() and do aray things
+
+split() string to array
+join() array to string
+reverse() for array
+
+
+
+-----------------------------------------------------
+
+
+
+Hash  eg object in js  map in java  dictionary in python
+used in eg database
+fast lookup fast insert  flexy keys
+
+insert O(1) insert O(1) delete O(1) search O(1)
+nothing is in order so no shifting or anything
+
+drawbackk    not ordered  collision      slow traversal of keys
+
+
+
+really fast lookup and access 
+uses hashing function to get the address of the data store
+when we add a property then we have to call the ahsh function which generate the address to put the value
+
+
+object in js
+
+let user={
+	name: 'anu',
+	rich: false,
+	job: function{
+	 console.log("oombal")
+	}
+
+
+
+
+Collsion in hashtable is that if  data are having the same location then we add the data in the same location joining them using the linked list whereby changing from O(1 )  to O(n)  since we have to go through the list
+
+
+IN JS OBECT KEY IS ONLY STRING
+
+BUT IN NEW JS USING MAP WE CAN HAVE ANY TYPE AS A KEY ALSO MAP MAINTAINS INSERTION order
+
+ALSO SET IT ONLY STORES KEYS
+
+IN JS   _hash() function is private properties which  even though we can access outside the class its dev standard that we shouldnt
+
+
+
+for finding keys it has to loop over the entire object which is slow if there are collision then n^2 using objects
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------
+
+
+
+LinkList
+
+fast insert fast del
+ordered flexy size
+
+slow lookup 
+more memory
+
+drawback is that we have to traverse entire list
+but good thing vs array is that in comp there are caches which will cache the index value next because it reads easilly the contiguous address than the scatterd addresses
+
+inplace of hashtable it has some order
+
+prepend and append= O(1)
+insert lookup and del = O(n) but kinda fast for inser and del since no shifting
+
+
+singly vs doubly
+
+singly easy implement and less memory and its bit faster
+drawback is cant be traversed in reverse
+if ever lost ref to this.head  then the list if forever lost since we cant traverse from tail
+
+
+
+
+
+------------------------------------
+stack                   LIFO used in function browser history
+pop push and peek(view topmost plate) O(1)
+lookup O(n)s
+
+stcak can be made with array and linked list fairly 
+but we need to  think babout the trade off
+in array there is  cache localisation where caching helps to look next elt faster but since the memory is limited so static and dynamic array may have problem in appending
+
+but in linked list the list is dynamic hence we can add as many as we want and since they are scattered they cant be cached 
+
+------
+queue fifo
+enqueue dequeue peek O(1)
+lookup O(n)
+queue is  not good to be implemented by array since deletion at start then we have to unshift all the things hence creating q from array bad
+
+
+implement queue using stacks
+https://leetcode.com/problems/implement-queue-using-stacks/solution/
+
+
+
+pros  fast lookup fast operation and all data orderred
+cons slow lookup
+
+
+
+1			1 2 3 4 5  
+2
+3
+4
+5
+
+
+
+-------------------------
+
+ we like trees more than hashtable because trees preserve a relationship whereas in hashtable there is no relationship 
+ like in a computer directory or folder structure there is tree instead of hashtable
+also tree is sorted
+
+BST is always fastest for anything
+trees
+
+pros- less than O(n) 
+it is ordered
+its is flexible size nodes can be placed anywhere
+
+
+
+ cons  there are no O(1 ) operation
+
+binary trees
+rule- each node can have only 0 or 2 child node
+each child have only 1 parent
+
+
+
+
+PERFECT BINARY trees(the most efficient and desireable)
+it is full graph all node have 0 or 2 child and also all the nodes in the botto, are at the same level
+
+property
+the number of node in the child level is double the nodes in parent level
+that is it increases byr 2^n where n is teh total depth
+
+also number of node in the bottom level = sum of all the other nodes above it + 1
+
+hence half of the data is in the bottom level and its efficient since we need to travel less to reach the bottom elts
+
+
+
+
+
+full binary trees
+it only states that all nodes has either 0 or 2 child  and the node at the bottom are not  in same level
+
+
+
+
+
+
+BST
+
+Balanced tree has 
+O(logn) lookup insert and delete all are balanced
+
+Unbalanced keep incressing the node at one side linearly hence it acts like a linked list
+it has O(n) lookup insert and delete    hence it is bad
+
+to delete a node from bst there are 3 cases
+1 if the del node has no right child     then delete the node and make the arent point to the left child of del node
+2 if del node has a right child but the right child does not have left child then make the right child of the  del node the next child of parent
+
+3 if the  del node has a right child and the right child has both left and right  then traverse till the last left child of the right child and make that last left child as the child of parent node
+
+
+
+problem, with bst is that its height
+in worst case its height can be O(n) hence just like linear search only
+aim is to creates height  Log(n)
+
+
+
+AVL trees are self balancing tree using rotations
+LL LR  RR RL rotations using a balancing factor which takes the difference of height or left subtree and height or right subtree for each node
+
+B trees and B+ trees  are self managed trees
+which can increase size and decrease size on its own
+
+
+pros better tha O(n)
+ordered
+flexible size
+
+
+cons    no O(1) operation
+
+
+
+
+
+---------------------
+HEAP (binary heap)(used ehere ordering is impp  used in priority queue)
+
+lookup  O(n)   lookup is like that cos no meaning for left child and right child we have to go through all the nodes
+insert and delete O(log n)
+binary heap has one simple formula
+
+if max heap- thenthe root node is the biggest   and  its just child node is lesser and goes on and on  but not as strict as trees
+if min heap  the root node is smallest and so on 
+
+
+max heap  every level on top level has a greater value than every node on lesser level
+
+they are really good at comparative operation
+
+in heap to insert we put at the very bottom and we traverse up
+
+
+
+pros 
+priority
+flexible size
+fast insert
+
+cons slow lookup
+
+
+
+
+
+
+
+priority queue are like queue but not exactly fifo
+elts with higher priority are accessed first
+
+
+--------------------
+trie 
+they are treees which are mostly used for searching   mostly for string search or auto completion or suggestion
+
+here the root node is empty
+then they have children for eg 26 since there are 26 alphabets 
+suppose anu ,and  2 words they both originate from the node A 
+hence it is efficient
+
+
+the complexity of search is O(length of words)
+also space is less as words having same starting letter is used only once
+
+
+
+
+
+
+
+
+
+
+
+
+graphs
+---------------------------
+
+TYPE
+directed & undirected graph
+unweighted and weighted(values in the edges also) graph
+cyclic and acyclic
+eg
+
+facebook is undirected since if i am a friend the connection is mutual
+but twitter is directed if i follow i only get their feeds not the vice versa also
+
+graph can be made by
+1 EDGE LIST 
+2 adjacency list - in this the index is the node and the value is an array of its connected node
+3 adjacent matrix- it has a lot of 0 and 1
+
+
+
+pros  good at relationships
+
+cons  since complicated scaling is hard
